@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 7%;
+    --foreground: 210 20% 92%;
+
+    --card: 220 18% 10%;
+    --card-foreground: 210 20% 92%;
+
+    --popover: 220 18% 12%;
+    --popover-foreground: 210 20% 92%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 16% 16%;
+    --secondary-foreground: 210 20% 85%;
+
+    --muted: 220 14% 14%;
+    --muted-foreground: 215 15% 55%;
+
+    --accent: 220 16% 18%;
+    --accent-foreground: 210 20% 92%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 14% 18%;
+    --input: 220 14% 18%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 220 20% 8%;
+    --sidebar-foreground: 215 15% 65%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 16% 14%;
+    --sidebar-accent-foreground: 210 20% 92%;
+    --sidebar-border: 220 14% 15%;
+    --sidebar-ring: 217 91% 60%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --shadow-card: 0 4px 24px -4px rgba(0, 0, 0, 0.4);
+    --shadow-card-hover: 0 8px 32px -4px rgba(59, 130, 246, 0.15);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .pos-card {
+    @apply bg-card rounded-2xl border border-border p-5;
+    box-shadow: var(--shadow-card);
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+  }
+  .pos-card:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-2px);
+  }
+  .pos-card-static {
+    @apply bg-card rounded-2xl border border-border p-5;
+    box-shadow: var(--shadow-card);
+  }
+  .pos-btn-primary {
+    @apply bg-primary text-primary-foreground font-medium px-5 py-2.5 rounded-xl;
+    transition: all 0.2s ease;
+  }
+  .pos-btn-primary:hover {
+    @apply opacity-90;
+    transform: translateY(-1px);
+  }
+  .pos-input {
+    @apply bg-muted border border-border rounded-xl px-4 py-2.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50;
+    transition: all 0.2s ease;
+  }
+  .pos-table {
+    @apply w-full text-sm;
+  }
+  .pos-table thead {
+    @apply border-b border-border;
+  }
+  .pos-table th {
+    @apply text-left text-muted-foreground font-medium py-3 px-4 text-xs uppercase tracking-wider;
+  }
+  .pos-table td {
+    @apply py-3 px-4 border-b border-border/50;
+  }
+  .pos-table tbody tr {
+    transition: background 0.15s ease;
+  }
+  .pos-table tbody tr:hover {
+    @apply bg-accent/50;
+  }
+  .pos-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+}
